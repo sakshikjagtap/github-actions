@@ -34,7 +34,10 @@ jobs:
           node-version: 18
 
       - name: build project
-        run: npm run build
+        run: |
+            cd react-app
+            npm run build
+
       - name: Deploy to github pages
         uses: peaceiris/actions-gh-pages@v3
         with:
