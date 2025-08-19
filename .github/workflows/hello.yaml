@@ -6,6 +6,12 @@ jobs:
     steps: 
       - name: checkout-repository
         uses: actions/checkout@v3
-
-      - name: say hello
-        run: echo "Hello github actions"
+        
+      - name: npm install
+        run: npm install
+        working-directory: ./react-app
+        
+      - name: Run test
+        run: |
+            cd react-app
+            npm test
