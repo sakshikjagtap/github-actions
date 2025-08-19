@@ -21,7 +21,7 @@ jobs:
             cd react-app
             npm test
 
-  depoy: 
+  deploy: 
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -32,6 +32,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          
+      - name: Install dependencies   
+        run: npm install
+        working-directory: ./react-app
 
       - name: build project
         run: |
